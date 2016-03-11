@@ -1,10 +1,12 @@
-﻿using System.Web;
+﻿using OnlineStore.Models;
+using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 
 
 namespace OnlineStore.Controllers
 {
-    public class HomeController: Controller  
+    public class HomeController : Controller  
     {
         // GET: /Home
         // Note: Had to change from IActionResult
@@ -13,10 +15,16 @@ namespace OnlineStore.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var products = new List<Product>
+            {
+                new Product { Name = "Cleats" },
+                new Product { Name = "Ball" }         
+            };
+
+            return View(products);
         }
 
-        // GET: /Home/Welcom 
+        // GET: /Home/Welcome 
 
         public string Welcome(string name, int ID = 1)
         {
