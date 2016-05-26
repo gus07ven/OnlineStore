@@ -1,0 +1,33 @@
+namespace OnlineStore.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class InitialCreate : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        picture = c.String(),
+                        Product_Id = c.Long(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Products", t => t.Product_Id)
+                .Index(t => t.Product_Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.Products", "Product_Id", "dbo.Products");
+            DropIndex("dbo.Products", new[] { "Product_Id" });
+            DropTable("dbo.Products");
+        }
+    }
+}

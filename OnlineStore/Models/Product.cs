@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace OnlineStore.Models
 {
@@ -12,5 +13,11 @@ namespace OnlineStore.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string picture { get; set; }
+        public virtual List<Product> products { get; set; }
+    }
+
+    public class ProductContext : DbContext
+    {
+        public DbSet<Product> Product { get; set; }
     }
 }

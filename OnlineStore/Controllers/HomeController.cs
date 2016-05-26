@@ -1,8 +1,11 @@
 ﻿using OnlineStore.Models;
+using OnlineStore;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Web;
 using System.Web.Mvc;
+using System.Linq;
+using System.Data.Entity;
 
 
 namespace OnlineStore.Controllers
@@ -79,7 +82,15 @@ namespace OnlineStore.Controllers
                               picture = "http://cdn3.volusion.com/goz35.avhz4/v/vspfiles/photos/TTYADM35023-2.jpg?1456231556"
                               },
             };
-
+            using (var db = new ProductContext())
+            {
+               foreach(Product p in products)
+                {
+                    db.Product.Add(p);
+                    db.SaveChanges();
+                }
+            }
+            
             return View(products);
         }
 
