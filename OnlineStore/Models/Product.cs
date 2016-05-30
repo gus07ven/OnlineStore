@@ -13,7 +13,7 @@ namespace OnlineStore.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string picture { get; set; }
-        public virtual List<Product> products { get; set; }
+        public virtual List<Product> Products { get; set; }
     }
 
     public class ProductContext : DbContext
