@@ -1,12 +1,7 @@
 ﻿using OnlineStore.Models;
-using OnlineStore;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Web;
 using System.Web.Mvc;
 using System.Linq;
-using System.Data.Entity;
-
+using Microsoft;
 
 namespace OnlineStore.Controllers
 {
@@ -21,23 +16,16 @@ namespace OnlineStore.Controllers
         {
             using (var db = new ProductContext())
             {
-             
-                var query = from b in db.Product
-                            orderby b.Name
-                            select b;
-
-                foreach (var item in query)
-                {
-                    return View(item);
-                }
+                return View(db.Product.ToList());
             }
         }
 
-        // GET: /Home/Welcome 
 
-        public string Welcome(string name, int ID = 1)
+        // GET: /Home/ShoppingCart 
+
+        public ActionResult ShoppingCart()
         {
-            return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
+            return View();
         }
     }
 }
