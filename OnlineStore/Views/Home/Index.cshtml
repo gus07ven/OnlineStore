@@ -4,10 +4,15 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale= 1" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-   
-    <script type="text/javascript">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        .img-thumbnail {
+            width: 360px;
+            height: 360px;
+            overflow: auto;
+        }
+    </style>
+    <script>
         function clickCounter() {
             if (typeof (Storage) !== "undefined") {
                 if (localStorage.clickcount) {
@@ -20,7 +25,6 @@
                 document.getElementById("shoppingCart").innerHTML = "Sorry, your browser does not support web storage...";
             }
         }
-        
     </script>
     <title>The Online Store</title>
 </head>
