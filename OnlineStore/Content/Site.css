@@ -16,5 +16,11 @@ textarea {
     max-width: 280px;
 }
 
+.img-thumbnail {
+            width: 360px;
+            height: 360px;
+            overflow: auto;
+}
+
 
 
